@@ -1,0 +1,13 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduBiz Platform</title>
+</head>
+<body>
+    <a href="EduBiz.apk" download>
+    <button class="download-btn">📱 Download App</button>
+</a>
+</body>
+</html>

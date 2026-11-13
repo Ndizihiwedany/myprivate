@@ -2,350 +2,923 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Student Dashboard</title>
-<link rel="icon" href="https://imgs.search.brave.com/FkRLHKmWJF_kiB4cg-kHvLcLGx9BtKWnO5a1V87TvYc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMDIv/NjM5LzA3My9zbWFs/bC9ibHVlLXllbGxv/dy1zLWFscGhhYmV0/LWxldHRlci1pY29u/LWxvZ28tZm9yLWNv/bXBhbnktYW5kLWJ1/c2luZXNzLXNpbXBs/ZS1nZW9tZXRyaWMt/Z3JhZGllbnQtZm9y/LWNvcnBvcmF0ZS1k/ZXNpZ24tdmVjdG9y/LmpwZw" width="300"height="300">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduBiz Platform</title>
+<link rel="icon" type="image" sizes="48x48" href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExQVFhUXGRcbGRgXGBgaGxodIR0WGR0aGBciHSghHhslHRcXITEiJyorLi4uFx8zODMtNygtLisBCgoKDg0OGxAQGy0lICYvLS8tKzI1LTIvLS0tLS0tLS0tLS0tLS8vLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAOEA4QMBEQACEQEDEQH/xAAcAAEAAwEBAQEBAAAAAAAAAAAABQYHBAMCAQj/xABGEAABAwIDBQQHBQUHAgcAAAABAAIDBBESITEFBkFRYRMicYEHMlJikaGxFCNCctEzU4KSwTVzdKKy4fAXYxUkQ1SzwuL/xAAbAQEAAwEBAQEAAAAAAAAAAAAAAwQFAgEGB//EADoRAAIBAgQCCAYABAYDAQAAAAABAgMRBBIhMUFRBRMyYXGBkbEUIqHB0fAjUuHxFTM0QkNiJJKiBv/aAAwDAQACEQMRAD8A3FAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQHLtHaMUDC+Z7WN5uNvIcz0CHE5xgrydhsuvbPE2VmLA65biFiRcgG3I2uOhCIQmpxzI6kOwgCAIDn2hViKN0jg4tYC4houbDUgcbC58kbscyllVzx2VteCpbjhka8cbHMdHN1B8V4nc5p1YVFeLudy9JAgCAIAgCAIAgCAIAgCAIAgCAIAgCAIDwratkTC95sB8+g6ripUjCOaWx43ZXZA7wb2NpqVkxbeSUfdx3143cfZAIv424rmFTNBS5leviFShfi9kZfQRVG1KxrZHucSbuPCNnHCNByHUhO0zJgp4mpaX9kblDEGtDWizWgAAcAMgFKbyVlZHjX18ULDJK9sbB+JxAHh49F7GLk7JHkpKKuym1/pVoWGzBNL1a0Nb/mIPyVuOBqveyK8sZTR4QelukJs6Gdo52Yfj37/C66eAqcGjlY2HFMtmw95KWrH3ErXEatza8eLDY266KrUpTp9pFiFWE+yyVIUZIYlvTs2XZ1Zihc5jXXdE5vLiw8DY5WPCyiayswq9OVCreOnL8Gg7kb3isYWPAE7BcgaPGmJvLO1xwuulLQ0cLiutVnuiw7L2iydgezzB1B5Fc0a0asc0S1GSaudilOggCAIAgCAIAgCAIAgCAIAgCAID4bKC4tBzFrjle9vovMyvYFB3j2kZ5cLfUabNHM6YvP6LDxVZ1Z2W3AqzlmditbfpJq+vdDAMTYAIgdGsDcnFx4XcHdTYa2Wuo7JcDPrRlXrOMeGncXrYFJSbNjMfaB0psZHAXcTysL4WjOw/Vcyr0qejepoUaUKEbceJ0bU3xhhp31Ba/CMm3sO0fwa3PxJNsgCpsJL4mVoJ25kk60YxzGcwbMqNpP+01r3NYc2Mbll7oPqt66n5pjul6eDvSw6vLi+C/L+iGHwM8R/EraLgv3Y46qklaHPZRYIGXBZe0jrZYnPHfLegP6r2lXozahPEXqPj/tXcl2b+J5OnUinKNK0Vw4vvb39CJn28OyDGU1Ox2eN3Ztdfwa4G3mSr8Ojn1rnOrNrgrtW8019CrLFrJljTinxdjzoaTG/HTzYJAbtDvujfPJjwcOLI2GV/ipquIdGP8AGhdcWtfNrR29bHEKSqSvTlryen129jSt1PSI5w7Crjd27LgkWGK3Etys7mBlxHIZ2Ny0YKtDWD4rh/RliliH2Ki1RO7Umo6+IwyOwk5tLhZzXcC06eV87qlDFUqml7eJJUVOtHKygUOy6jZu0aftB3XSNYHt9V7XHAc+Bsb4Ty81LszMjTnQrRzc9+ZZKWrdS1DreqHFrm823+tswsaE3Qqvx1NFSySL82paQ03Fn2w9bgkfILbU4tJ89izdHsuz0IAgCAIAgCAIAgCAIAgCAIDxq6gRsc92jQSVxOahFyfA8bsrlO2TtFxjrJSe8WtPgTiaLeFx8FlUK0stSb3IIy0bOTdqkDpe0dkyOxJ6/haOZvw6dVHgqWepd7I5prW74HdWTPAMFJC5jS4l7mg3c4+tifpe+pv0urWJq1JPq6SfezrbSCPjY+77XPDZpGYrX7JrgXWFrl1jkMxpz1XFDAO95+h5GCvZvyILeForNpdhb/y9G0d0eqXmxIt8B/Aea1MXX+Cwd6ekp6LuX77klGkq+Iyvsx9yVrdpRRW7R4aToMyeWgzt1XzGGwOIxN3Sg2lu+HqzWrYujQsqkrckVTefeJ5cYoXFgabOe05uPIHgB01X1HRHQdNU1VxCu3tF8PHv+hg9I9LzzunRdkt3z/oVervK7G83cdTYAnqbanqvoqWHp0o5IKy5cvC/tsY08VUm80ndkvsHZlIYnOqZDYvAwYiBkMnOtn+J2egF+qxelcRi6dZQw0eF81l6K+nBaceRrdHQoVKblXlxtb7v1JffXZtuzq4gMbC3FycPwk8+XUOWV0FiM7lg6u0r28eK+5f6WpRjFV48LX+34LFJsyOVrJKeVhxta7snPaHtuL2zOfnZQYno6UJNQ4cCosskpRe/A7tmNnAEM0Tnx3BbjaXNBBBHeANhcCx/Cei9wsqtN5JxdvY7V7ZWjx3pgDndu0EXs2Rp1Y4aYh1Fs9DkQTcLjH0bS6xcdxU11PiWrd9ihsbFkxAPgHOH1CilUfw8bcH+Rf5EXLZVaJomyDiMxyOhHxWtRqKpBSRPF3VzrUp0EAQBAEAQBAEAQBAEAQHnPM1jS5xDWjMk6BDxtJXZBb6z2gDR+JwB8Bc/UBUekJWp25sjqvQgdkU5dTVOYAPZXccgAHYnOJ5AXKpYek50ppcbe5FFfK2RW2t6RSBscIHaWu0PH7MEftHt4zOGYB9RpA1Jvp04xpRUYlWtier0jv7d/i/oQ1Js3aNe4F75cBIu+VzmRi/styB8Ghd2bK8YV6z1btzZqe6+7cNFHgjF3G2N5Gbj/QDgP9ypErGrQoRoxsvUyaurpI6mctNsUznHLiHuI8luTwVHEU49Yr2i16rUwfjKtGrPI95X9Hofu0pWVTg8DDKbAtc7ukaDBlz4Za8eFTBUKnR8XTl81Napparnm19vpxsYqtDHSU46T2s3p5afvecFdsySIgSNLb6HUHzCv4XHUMUr0ZXt6+jKeIwtbDtKrG3sc8MQLm4sm3FzyF8/kp6jkoNxWtnbx4EEMrmlLa6v4Gn0tOyNgYwANAyA/wCZ+K/K69apWqOdR3l++h+i0qVOnBQpqyIzbOzW9hLhLmgMccIPcy73q6C9lp9G42fxNNSSbckrtfNrpv8AveUcfho/DzabVk9L6aa7Hbu1u9DXbNibM3vMMgY8es3vE5HiM9DkvpMfBdc/3gYmFoxrYZKXC+vmVis3b2hRnFTyPkjBNnwOJ04OjBOfTMKjZrYglQrUneDuu78ElsLet87xDUBoqLYWlwwtmH7mYfhcdWvGjvEhx2kssiWjiXN5Z9r37n9n/Ym66maKIFhJb2xOfrNyLS144OaRhPULOxFDq6Nl/MXdHC6O/cSc2kZwGFw87g/QLvo6XaidUXui0xyB2YIOZGXMGxHiCLLTJ7n0gCAIAgCAIAgCAIAgCApnpXrcFFgGsr2t8hd5/wBIHmuZvQpY+VqVubOWprjU7OpptSLNf+YAsJ+LfmqGPV6afeewn1lGMj5ZUxRRtZM7DDHhln5vkd3ooAOJsA9w6NvkSpsLTyU1fxPJTjHSWy1fjwX39CC2z6SZ5CRTRtiGgc4B8h8vVHhYqdzKlTHylpBW9/31LRuVsCe4q6573zHONjyT2YPHDo15HAaA8yV0lxZaw1Gfbqu79i6LovGLb20JirJm2yLi8eDu99SR5L6HCTz0Yvy9D5PGw6uvJd9/U5NkStjmY92gOfS4Iv5Xv5KHpPDzr4WdOnu1p38beex10fXhSxMJz2T19r+W5d62kbNGWO0PEcORC/OsLiamErKpDdcH9Uz7zE4eGJpOnPZ8fZooe0KMRyOYHYg3K/1HiNF+k4LESxFCNWUct+H38z4HF0o0K0qcZZrcft5HdsTaskb2MuTGSBhOdr5d08PBZ/SvRNCvTnUStNJu/O2upd6N6TrUakad7xbStyvpoTu9k+GDCDbG4Dy1P0HxXzn/AOcoKpi8zXZV/PZG/wBPVurw2VPtO3luy4bj0hjooWnUgu/mJcPkQtzFzzVpP90KmBg4UIp+PqRe+G68riamie6Kf8bWOLRLbzti8cjxVVrijzEYeT+ek7P3Kbs/f6pjdgqmNmDTZwewNkb52tcciPNcKT4lGGNqRdpq/uW11dDUNM0LvuagtZK05GKbIRvcOGKzWHn3DzK5rQVSDjzLqnGfzxej0fc+H49D03SPZCplfkI296/DDiLvhZUuj4tOTf7uS03lTk+Bz+ira7po6hrz3hKZPKS5IH8TXfFaMHcgwFXOpJ87+pe12XwgCAIAgCAIAgCAIAgM29MrjhphwvKfMBlvqVxMzOknpHzPH0e1kY2fVCbOOJ/aEdMINh4lnzXDhGcHGWx5gppUZZtlqfW1dzpHsE1ZVshZm94wk2e/vPzLhnezRrk1o4Lpx5iphZSWapKy+73IvZFTTMnZDs+IyzuNhUVAuGc3Mjy0Fzc2OXFFbgRU5U1NRoq75v7I19gsBnfqePVSGxwOWg2pDNfspGusSCAcweo1C8Uk9iWpRqU+3For+/mwDPGJYxeSMG4Grm62HUajxKv4HEKnLLLZ/RmN0nhHVhnhuvqv3YzItW6fMZtLlk2ptAxRshjNnYW3I4C2g6lfH9G9FxxeIqYqsrxzOy5u+77l7+B9Z0j0k8JQhhqTtLKrvkre79itlq+vsfK5rnts8ASxk6B7fqFVxyk8NUUd8rt6FnBSisTTctsy9yxxUZr6prG/sY/XdwtfO3U2sPMrG6Mw3+H4Vyn258OXL03fobeMq/4ji1CHYhu+fP12XmzSKipjibd7msaNL5eQCrTqRiryZq3SR7A3F+BXqdz0yvemWJlQYNoRF7dYqmLuy4DpjGj8Oh8L2N1w99TJruKnlrK/Jre33JLdzc+PvSU1WJaeVpZIwtzII9oHJ7SQRdoI816o8iWhhY7wldPc9d4a0t2VPfKYvEMx5vDmsc63vsGL+Nc5VFNrjudV5v4d89mQXogkP2qVvAw3PiHsA/1Few3K3Rz/AIjXd9zXFIbAQBAEAQBAEAQBAEB5Vc2Bj3+y1zvgCf6IeN2Vyh7/ABbW7Niqoswwh5GpDSC1wPVrrX/KVxLVXM/FWrUFOPj+SvbigGIscbMkqIy++mCFjpnX6XwA+K5iV8J2bPi/olciN6NvS19RkHFl7RRi5y4HCNXnj8OC8buyGvWlWnptwRf/AEc7vspnPMhDqrC3G0ZiJrrkMJ0xnDc+A4ZmSKsaGCoqne/a9v6l5K6L7MDnmcyZ7mOLXB77OaSCO8dCFmNtO6PuoRjOlFSV1Zexbdg+kKVlm1I7RvttsHjxGjvkfFTwxDWkjKxPQ0JfNRdny4flExW7Dpq4GakkaHn1m6An3m6td5Z/NbOF6Ryqz1X1R8T0l0HJTbtll9H+9xXNobAqmuu+J5yAuwYgbAAaX4DitHD1cPGOWDtq3Z6bu7372YGJwuLzZpxb2V1rsrLbuRyR7IncbCGU/wADv0Vh16a3kvVECw9aTsoS9GStNuk8DHUvbBH1ILz0DRx/5ZUcT0pRpK619vyX6HRNWWtX5V6v8EqNuMhZ2VIzA323ZuJ525+N/AL5XFdKTqyuvX8I26UYUYZKasiFqZ3PJc9xceZN1lzlKWsncNt7mpU/qN8B9F9JHZFxbFd382VDUQtbI4Rvx2iedA8g2a48GutbxtxskldFbFUozjaWj4PvMpoqyq2bUnIse22Nh9V468weDgo9UzIjKph59/uWrfCsbNTSSx+pOyGYDiHseIZAeoD4h/CupbFzESU6bceNn6Oz+w9FFOI2VNXJ3Y2tDcR5Dvv/APokOYwCyqVR7ftzQ9h7RFRBHMBYPbe3LXJdp3Ro0p54KXM716SBAEAQBAEAQBAEBxbaYTTzAamOQD+Uozip2WZT6NduiOQ0k1jDPkAdA8i1vBwy8bdVFF8DIwNbK+rls/f+pOQbolsj6NkmEGOV2O1yGSyRMtbLvdnCW/FdZeBYWGs3TT4P0bX2RFbW2nTbOxQULcVQLtkqH2cWc2s4YudhYdTp5dLYhqVKdD5aW/Flx9G2z3R0YkfcyTuMricyb5NueoAP8RXUVoXcFBxp3e71M89I+8tTRbXe+nkLR2cRcw5sdkfWZp5ix6q7ShGUNTupNxlofm7M0Lqpr6nB2TsZdi9W5a4j5kLEhlz/ADbH3WKVX4a1G+bS1t+BdajcqiqG46WXD1Y4SM8xe/zCndCEuyY8OlMVQeWtG/irP98iq7Q2BWUD+1bew0liJIA94agcwRbxUMqc6bualLGYbGR6uXo/t/TUuu5u+QqbQzWbNwI9V/hyd0+HIWKVbNo9zG6Q6NeH+eGsfqv3mS+39ttpxYd6Q6DgOrun1UeJxKpKy3Mac8pU4KOoq3Y8z7zsmjoP0CzI062Ilm+vAhSlPUnIN1oYximkv5hjf1+auxwNOKvN/YkVJLchN4m04cwU+G1jiwknO/PiqWKVK6VK3kR1MvApdDvpVVm1KWN78ELZ2ARMJDThNrvOrzlfPLkF9PGnGNG/cjqM25I17e/ZX2mkmiAu4tu38zTiA8yLeaqtXR1iKfWU3EzHYe8UUrW0u0W449GTHJ8XCzna4evDjcaRp8GZVKvGXyVtVwfFFmm3V7FkVMJcTJn1DGOIzaHwl4vbI2fC05Wv0XWXgW3hskVTvo7r1V/dEPv/AF7KeKPZtPkxgBlPEnUA9Se+fFq8k7aEGLmoRVGG3H9+pd/R60jZ9Pf2XHyL3kfIruOxewn+TEsS9LIQBAEAQBAEAQBAfjm3FigZ/O21qF1PPJCbgxvIB42GbT5ix81C9GfN1IOE3HkaLLvC7spqsG0jqGmAPJ5lqGEjwdc+S7vxNN1/kdT/AKr3f3KVu1sUSl085wUsWcrz+L/tt5ucbDz5kLhIo0aWb5p9lb/g07cHaj6oVE5GFhkbHGzgxjGggePfueqki7mphKjq5p9+hk3pq/tN/wDdRfRyv0Oz5ntbcl9ypyyqicI3SWDu4yxce44ZAkDK9/JYdN2qep91joKeFs5JbavbgX4/+HTyWINNUHS4dTy36HIO+YVj+HJ8n6GH/wCZSh/PDylH72+h3l1VTDv3qoOJDQJmjq0d2QeAB6FdfNHfVfUgtQr9n5Jf/L83qvO68Cob3bDjY1tdROHZ3BODRpvk9vIYsiOB81BVgks8DYwGLlJvC4ha7a8e5/ZknsKn+2ONTMbR5F3AXtfDfg0BU6dLrqkp1Nl++h8xWoZK04y4Nos0ckkoAhAiiGjy3vEe4zQDqfgryc5q0NI8/wAI81exzSso43feO7WT3iZX/wAouB8Ao5LDwfzav1foefKtyC3pqA98eGN7AGnJzcN8+A5KnjZqTVk19CKq7mR7mf2tT/4n+rl9N/wrwX2OYdpG87810kFI6eI2dG+I9CC9rSD0IdZUZOyO8VNwp5lwt7mX70ULJm/b6YfdSH71nGGQ6g+645g9eoXD11RlV4Rkuths9+5li3R2sZKeka85wVWG/udjO4X8BceDQvYss4epmhFPg/syhVtQ+pnc+xL5XkgdXGzW/MBcbmfKTqTb5s/oDZNEIYIoh/6bGt8bAC/mplofQ04ZIqPI616dhAEAQBAEAQBAEB4Vs/Zsc+18IJIGthmbeV1xUlli5cjxuyKJv1u6K1gq6Wz5GizmjV7R09tvLiPJcRlGpHNFlDF4frVnhuRO52zWVMbKeUua0tkDgMj91M2XB0/b+Oa6SvoQ4aCqRyPv+jv9zg9Im1WmQUcIDIKfLC3IF/E+VyPHEvJPgRYyonLq47I0H0dUJioIrixfeQ/xG4/y4V3HY0cHDLRXqZB6av7Tf/dRfRyv0OyK27Jjcgyfa4uxDDJZ9g8kNPcde5AJGV+Cw6d+s07z7nHZPhf4l7abb8DR6zafdLK6jcGcXNAnj8TYYm+JarTlpacfuYFOjaWbDVdeXZl+PqfNHSuY0S7PlEsX7lz8TD0ikzMbuhuOgXiVtYPTkKk1KWTExyy/mSs/NbPx38Tg2pPGYKiaIFrXteyohIsWSFtmvLeDr4QSMnAh3C58m1lbXmT0ITVanTnumnGXNX1V+XLk9OJ8blOaaKMyZRRl5I9t+MkC3EDLLiSOSgjbL83ZX1f79St0v/qpX209kWKWJ8oLpnGGL2AbEj/uP4flHxXcoymr1Hljy/L+xnNN77HxS1sbRhpYHPHNrQxp8Xutf5ryFSEValG/hovU8TS7KK/vbJIXxmRjWHCbAOxZX4mwVHHObazq3nf7EVW99TItzP7Wp/8AEf1cvpv+FeCOafaR/Qu81AZ6WaIauY7D+YZt+YCpPYmrQz03ExXdTbZpZw5wvE/uTMIuCw5G7eJFyfiOKii7Mw6FXq5Xez3Llt7YkdHiMDjhe2aVrdcNoZIRhPEYqhlvgumrF6rRVK+Tvf0t9z53C3T7C1ZVjs8I+7Y7Ue+4cDybrnzsvLqCzS0GEwuT+JPTkaJs6sErBIAQCTa+pAJF/Oy9pVFUjmRpJ3VzpUh6EAQBAEAQBAEAQH49oIIOhXjVwZ32slHO4NOh0Ojm8L+XHgsLNPDVWl/dFW7hLQm6qtjc6lq4wBabBLkLjtWiPvfxCLPkAtelWjUipRPZtXjNc9fPT3sZpu3sOSuq3BwOHGXzO5AuJIv7TjcDzPBepXZlUaLrVHfzNzjYAAALACwA4BTG8j+ffTV/ab/7qL6OV3D9kq1t34EvuRC59XE1sjo3EOs9uEkdxx0IIN9PNYdNXqep91jpqOEu4prTR37uVjTSa+HXsqpvT7mT6lh+StfxF3nzn/iVOcH/AOy+zX1OKFkM8jnUznUtWM3Mc3CXf3sWj2+8M+q8STd46Mlk6lKKVVZ6fB328Hwfc/NHLtyQvhneWCOpZE5k8d8pIyCBI0/iDTdwOos5p1XM22m+PElw0VGpCKd4OScXyfJ8r7PyZ8bkPtSROc0uwueImDV7y5xLvIG1+HeKhi7JN8Nlzf79yv0v/q5eVvRE9PGxtpKpwe8+rGLloPJjNXHqfkvZKK+as7vguHkuPiZjstZHuKipf+zibE3nKbn+RunmV3nrS7MUl3/hfk9vJ7IrO9kUjXs7SQPJadGhoGempus/Gxmms7v9CGqnfUyLcz+16f8AxJ+rl9L/AMK8Ec0+0j+mFULZjfpI3aNPMZ2D7mU3NvwPOoPQ6jzHK8UlbUxcbh3CWZbMuW79SAGzSnKnpaeI317RzWSPHjYQ+aSnGEc0uBeovjLgkvPd/Yi9o7QkqpQOBNmM4C+VzzPMrFq1Z15peiOpSc2aBSQCNjWDRoA+C3IQUIqK4FlKysey7PQgCAIAgCAIAgCAICv717I7VnaMHfYNPaby8RqPNUcbh88c0d0RVIXVzPqjb9PAHxTSWbI0tc1ubx7Lw0ZhzTYgm2ir4ClWcrxi7Pfl+or7ppnjQ+lmnposMNG7G67pCXtY10hzc4HvG19L6Cw4LejhnzOqclCNktePieb/AE2zcKSIDrK4/PCF38MuZJ13cUXe7eM19QahzGsJa1uFrsQyvnew5qaEMisRTeZnbTbZiNgSWnqP6hY1TBVU7rU+zw/TWFmlGTcX3/ks+yN6KmGximLm+y442npnp5EKup1IOz+pbng8LiY5kk+9W+xc6DealrsMdS3spge5IDazuBjk1Y7ocjpmp41Yz0luZFXAV8JedF5o8V3d64r++h07wNk7GWOUjto4pDHMBYTR2tI1w4Pta7dLhrhyHtS+Vp7kWFcOtjKHZbV4/wAr4Nd3J+Kff5biPcKSPCA6RxkbGDoxuIlzndLnzs0KGndK61b27lxZD0v/AKuXgvYmKmugpSS4mWc6nLF4X0Y3oF5OrTob6y/fQynJQ8SAr955337wjb7uXxcc/oqU8ZVm7R08CJ1JMp2098YGnOR0zvdu7/OTb4FTU+jsTV1lp4/jc4vcomzNr/Z6plU1oJZIXhrjYHMmxPmvpVD5FHuPU7O5fP8ArXU/+3gt+Z/1uo/hlzJOufI6v+sUc0b4qmiDmuFiGSXB8QQLZ2zBuFzLDd55KopJpoUO9UM7GRiSzrl7w4YS6V3ecRwIF8LQDo0LF6QoV09rxXIiV1Gz8/Eve52ySPv3jowH5u/oPNc4HD2/iS8vyT0ocWWxaZOEAQBAEAQBAEAQBAfL3gAkkADMk6AcyUBke9npDlqnuptnPbHGMn1LnYb/AN3kTbqAXHgBqbdKhxav3FepWS42K5s7Yuzojin+11rzmcDDFHfXMucJHePHkrPUVpbWX73Fb4miuNyz0W9NNT/sNkNb1uwO8zgJ+a8eBm95Hnx1NbIlIvSfEP2lFO0e7gd9cKjeAnwaJFjoPgdkW8uxqzuythueE8Qb/nIw381DLD1ocPQmjXpS4nNtf0T7Pnbjpy6AnMGN2Nh/gcTl+UhcKvJbnbpxexm+8G4NfQXkaO1iGskNzYc5I9R8wOalbpVVaS/fE6pVK2HlmpNrw+6I2g2011myWBPH8J/RZ9fAuOsNVy4n0eB6chUahX0fPg/x7Gh7K2721LLSzuJc2N7oX3zu1pOAnjlcdQSOSrxneLjLyLGIwnVV416S0bSkuGr3/eNmSG720uwoWCM/eyF9z7DQ5wFvE3Pmeir1K3VQ+XtP6IxOm5ZcVLnp7FT29vRHCS1v3kvEXyB993Ppr4Jhejqlf5paLnxfgYpEbK3f2ltU4gLQ39d92RD8o1efAHxC3KVGhhlaK1+vqdRg2aHsX0Q0cIxVMj53DM3PZxjyBv8AFySryexMqUVuSD9tbFou7GKfEOEMYefN4Bz8Suo0K0+D8zh1qUOJyS+k6E5RUc7x7wYwfIuUywE+LRC8dTXAi67e6KfKbZEbx7z4yf8A47qRYGS2n++pG8fB7xKztTZWzprllPV0jj7GGePzYXB1vykLr4etHimefFUX3Ejuvv5Ns9zYap/2ilOTZBi7SMaeq4BxaPZI/KToa9XD91mWKVZPZ3RtFFVslY2SNwex4Ba5puCDxBVNq2jLZ7LwBAEAQBAEAQBAEBCb7PAoKkkAgRPuDoRbMHopsP8A5sfEir36uVuRhsW1JLfdwgN91riPktzMlyMPqW97s8xt6T2WfP8AVe3POqR7M3g5s+B/2Xtzx0u86ottxHXE3xH6Jc4dJnuWQzD8D/DX9Qh580T6oftFKcVJO+Pmwm7D4tOXyv1UdSjCp2kTUsTKGzLtu96S2OcIq1nYSfvBfsz48W+OY6hZtbBSjrDVfU1KWMjLtaHnvv6M4KtpnpMMUxGKw/ZS8cwMmuPtDW+YOogp1nHSRYlTUtUZFT1MlNI6Coa5pYcJDtWH+rePgQRko8ThVUWeG/uavRfSsqDVKt2efL+nsdlfvC8sbT097k2Lm5ucScmxgZ53tcZngoMN0dHN1lXyX3ZT6VrQrYqUoO60Xoi/7i+itjAKjaADnaiAkYG8bynRx6eqON+F2pX4RKsadtZEvt/0jxxnsaFgmeMsWkTeGVvWA6WHVS0cFKWs9Pcgq4yMNI6lK2hJU1RvVzueP3be6wfwjLztfqtGnQhT2RmVMVOe7PhsUMQ0Y3qdficypSC8pHNNtuIaYneA/VLnqpM5X7wH8LB5n/ZLnapLmeR29J7LPgf1Xlz3qkez9qTBgc+HuHMOLXBpHQnIheZ03a571NtdTWfRRO19DdrQ0dpJkNOBNvjdZGN/zfJGvg79Vq76suSqFoIAgCAIAgCAIAgPwhAfqAw30mbqGlm7aNv3Epvl+B5zLegOo8xwF9fCV88cr3XsZeJo5HmWzKfSzlj2vAaS0g2e0OaejmnIgq1JXVisnZ3NW2HsLZW1IsccfYTADtGRuwlp5hubS08Db53CzalWvQlZu6L8KdGtG6VmRe2PRPOy7qaVsgGjX9x/k7NpP8qlhj4vtqxxPBy/2u5U6l9XSOwTxvaeUg1/K/j5Eq5CpGSvF3KNSjZ/MrHVFXQzDC8WPJ39HKTchcJR1RK7v7w1GzXWF5qUnOMnNnVh4fQ9DmquIwsamvHmW8Pi3DThy/Ba99N3INr0oqqUtM7W9xwyxgZmKTkb3tfQnkSsyMpUpZZGo7VI5onh6OtzotnwfbazC2bDiJfpA0j1R75BzOueEdVSbm8sf7nsYqCzMgd5t5ptouLGF0VIDpo6Xq7p7unO500sNhVTV5b+xmYnFuWi2IeSqhgGEa+y3M+Z/VWyioykcDa6onf2cDHEnRrAXO+PDxyXMpqKu3YmhR1stWWjY3osqpe/UvbCDw/aSHxzwj4nwVKpjoLsq5dp4OT7WhYNo7s7K2ZD2szDM/RjZHXL3cgwWbbmSMlXjWr1pZYuxPKlRpRvJXMo2nWmaR0haxl9GMaGtaODWgcB/utOEVFWRnyk5O5NbjbsOrqgNIIhZYyu6cGA+07ToLlRYit1Ue97EtCj1ku7if0BFEGtDWgBoAAA0AGQAHJYj1Na3ARxNb6oAub5ADPmlz0+0AQBAEAQBAEAQBAEAQBAEAQBAEAQHLtKgjnifFK0OY8WIP1B4Eag8F1GTi8y3OZRUlZmB75bqS0EuF13ROJ7OTn7ruTx89R02aFdVV3mTWoum+4iNmbQlp5GywvLHt0I+hGhB5FSzhGatIjjJxd0bLuf6RIakNjnwwz6ZmzHn3HHQn2T5ErKrYSUNY6o0qOJjPSWjLjWUccrCyVjXsOrXAEfAqrGTTuiy4p6Mzfef0VNN30TsJ/dPN2/wP1Hgb+IV+ljmtKnqUqmDW8PQz81E9K8wzscCNWP1A6HiPiCtGE1JXjqjOqUrOz0ZM7sbwGil7aEl1O8jtouLfeA5jh8PCLEUFVj3kmHrypSsyR353kFbJga+1HERnmO1fz52GgHieItFhMPkWaW/sSYvEZnljsVSo2k+QiOFpF8mhou53QAfQK45JK5VhS15sue7Hose+0lY4sGvZMIxn879G+AueoWfVxyWlP1NGlg29Z+hqGytkwUzMEEbY2+6Mz1cdSepWdOcpu8ncvRhGKtFFd3u39p6O7GESz+w05NP/AHHcPDXw1U9HCzqa7Ihq4iMNFqzFts7XmqpTLO8ucdOAaPZaOA/4brWp0401aJmTnKbvI9d3dhTVkwhiHVzj6rG+07+g4ryrVjTjdntOnKo7I/oDd3YkVHA2GIZDMuOr3cXO6n5ZBYlSo6kszNenTUI2RJrg7CAIAgCAIAgCAIAgCAIAgCAIAgKTvR6N6apu+L7iU53aLscfeZln1FvNW6WLnDR6oq1cLGeq0ZmG3dy62luXxF7B+OO72+dhceYC0KeJpz2ZRnQnDdFdBVghBCA9vtL7Ycb8J4Yjb4Xsucq3se3e1z5E7gMIc7DyubfDRLK9xd8zzDV0eBAS2xd26qqI7CFzm+2RhZ/Ocj5XKhqVoU+0ySFKc9kaXu16LIo7Pq3CZ37ttxGPE6v8AkOhVCrjZS0hp7l6lhEtZ6+xocUYaA1oDWgWAAsAOQColw+0AQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQENtXdWjqLmanjc4/iAwu/nbZ3zUsK1SHZZHKjCW6K1Weiejdmx80fQOa4fNt/mp446ot7MgeDg9rkXJ6Hx+GrPnED9HqRdIPjE4+CX8x+M9D/ADqz5Rf/ALXv+IP+U8+C/wCxIUnokpR+0mmf0GBo/wBJPzUbx03skdrBw4tli2ZuTQQEFlOwuH4pLyG/MYibeVlBPEVJ7smhQpx2RYALKEmP1AEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQBAEAQH//Z">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --main:#4e73df;
-  --green:#1cc88a;
-  --red:#e74a3b;
-  --orange:#f39c12;
-  --dark:#2c3e50;
+:root {
+  --primary: #4e46e5;
+  --primary-light: #ede9fe;
+  --green: #059669;
+  --green-light: #d1fae5;
+  --amber: #d97706;
+  --amber-light: #fef3c7;
+  --red: #dc2626;
+  --red-light: #fee2e2;
+  --blue: #2563eb;
+  --blue-light: #dbeafe;
+  --dark: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --surface: #f9fafb;
+  --white: #ffffff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, Helvetica, sans-serif; background: white;  margin: 0; }
+
+.auth-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  padding: 20px;
+  gap: 40px;
 }
 
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:Segoe UI,Arial;
-  background:linear-gradient(135deg,#4e73df,#1cc88a);
-  min-height:100vh;
+.auth-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-height: 90vh;
 }
 
-
-.login{
-  max-width:420px;
-  margin:90px auto;
-  background:#fff;
-  padding:35px;
-  border-radius:18px;
-  box-shadow:0 20px 40px rgba(0,0,0,.25);
-  text-align:center;
-}
-.login input{
-  width:80%;
-  padding:10px;
-  margin:8px;
-  border-radius:8px;
-  border:1px solid #ccc;
-}
-.login button{
-  padding:10px 18px;
-  border:none;
-  border-radius:10px;
-  background:var(--main);
-  color:#fff;
-  font-weight:bold;
-  cursor:pointer;
+.auth-left h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  animation: fadeInDown 1s ease-out;
 }
 
-
-#dashboard{display:none}
-
-.top{
-  background:#fff;
-  padding:18px 25px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  box-shadow:0 10px 25px rgba(0,0,0,.15);
-}
-.top h2{color:var(--main)}
-
-.top button{
-  padding:8px 14px;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:600;
-}
-.logout{background:var(--red);color:#fff}
-.confirm{background:var(--green);color:#fff}
-.reset{background:var(--orange);color:#fff}
-
-
-.container{
-  max-width:1100px;
-  margin:30px auto;
-  background:#fff;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 25px 50px rgba(0,0,0,.25);
+.insta-feed {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 200px 200px;
+  gap: 4px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  animation: slideInLeft 0.8s ease-out, pulse 4s ease-in-out infinite;
+  position: relative;
 }
 
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  margin-top:20px;
-}
-th{
-  background:var(--main);
-  color:#fff;
-  padding:14px;
-}
-td{
-  padding:12px;
-  border-bottom:1px solid #eee;
-  text-align:center;
+.insta-feed .feed-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.grade-A{color:var(--green);font-weight:bold}
-.grade-B{color:#3498db;font-weight:bold}
-.grade-C{color:var(--orange);font-weight:bold}
-.grade-D{color:#8e44ad;font-weight:bold}
-.grade-F{color:var(--red);font-weight:bold}
-
-.edit{
-  background:var(--main);
-  color:#fff;
-  padding:6px 12px;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
+.insta-feed .feed-item:first-child {
+  grid-row: 1 / 3;
+  grid-column: 1 / 2;
 }
 
-
-.average{
-  margin-top:25px;
-  padding:22px;
-  background:var(--green);
-  color:#fff;
-  font-size:22px;
-  border-radius:16px;
-  text-align:center;
+.insta-feed .feed-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
+.insta-feed .feed-item:hover img { transform: scale(1.08); }
 
-.settings{
-  margin-top:35px;
-  padding:25px;
-  border-radius:18px;
-  background:#f8f9fc;
-  border:2px solid var(--main);
-}
-.settings h3{color:var(--main)}
-.settings input{
-  padding:8px;
-  margin:4px;
-  border-radius:6px;
-  border:1px solid #ccc;
-}
-.settings button{
-  padding:6px 12px;
-  border:none;
-  border-radius:6px;
-  background:var(--main);
-  color:#fff;
-  cursor:pointer;
+.insta-feed .feed-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
+.insta-feed .feed-item:nth-child(1)::before { background: linear-gradient(45deg, rgba(78,70,229,0.5), rgba(124,58,237,0.3), rgba(5,150,105,0.5)); }
+.insta-feed .feed-item:nth-child(2)::before { background: linear-gradient(135deg, rgba(37,99,235,0.5), rgba(78,70,229,0.4)); }
+.insta-feed .feed-item:nth-child(3)::before { background: linear-gradient(135deg, rgba(5,150,105,0.5), rgba(217,119,6,0.4)); }
+.insta-feed .feed-item:hover::before { opacity: 1; }
+
+.feed-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; align-items: center; justify-content: center; gap: 24px;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.insta-feed .feed-item:hover .feed-overlay { opacity: 1; }
+.feed-icon { display: flex; align-items: center; gap: 6px; color: white; font-weight: 600; font-size: 14px; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
+.feed-icon svg { width: 20px; height: 20px; fill: white; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)); }
+
+.chat-bubble {
+  position: absolute; bottom: 12px; left: 12px; right: 12px; z-index: 3;
+  background: rgba(255,255,255,0.95); border-radius: 12px 12px 12px 0;
+  padding: 10px 14px; font-size: 12px; color: var(--dark);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transform: translateY(10px); opacity: 0; transition: all 0.3s ease;
+}
+.insta-feed .feed-item:hover .chat-bubble { transform: translateY(0); opacity: 1; }
+.chat-bubble .chat-name { font-weight: 600; color: var(--primary); margin-bottom: 2px; }
+.chat-bubble .chat-msg { color: var(--muted); }
+
+.insta-feed::after {
+  content: ''; position: absolute; inset: -3px; border-radius: 18px;
+  background: linear-gradient(45deg, #4e46e5, #7c3aed, #059669, #2563eb, #4e46e5);
+  background-size: 400% 400%; animation: borderGlow 4s linear infinite; z-index: -1;
+}
+
+@keyframes borderGlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes slideInLeft { 0% { opacity: 0; transform: translateX(-60px); } 100% { opacity: 1; transform: translateX(0); } }
+@keyframes fadeInDown { 0% { opacity: 0; transform: translateY(-30px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInRight { 0% { opacity: 0; transform: translateX(40px); } 100% { opacity: 1; transform: translateX(0); } }
+@keyframes pulse { 0% { box-shadow: 0 8px 32px rgba(0,0,0,0.4); } 50% { box-shadow: 0 8px 48px rgba(124,58,237,0.5); } 100% { box-shadow: 0 8px 32px rgba(0,0,0,0.4); } }
+
+.auth-card {
+  background: var(--white); border-radius: 24px; padding: 40px; margin-left: 70px;
+  width: 100%; max-width: 440px;
+  box-shadow: 0 32px 64px rgba(0,0,0,0.2); animation: fadeInRight 0.8s ease-out;
+}
+
+.auth-logo { font-family: Arial, Helvetica, sans-serif; font-size: 28px; font-weight: 800; color: var(--primary); text-align: center; margin-bottom: 6px; }
+.auth-sub { text-align: center; color: var(--muted); font-size: 14px; margin-bottom: 30px; }
+.auth-tabs { display: flex; background: var(--surface); border-radius: 12px; padding: 4px; margin-bottom: 24px; }
+.auth-tab { flex: 1; text-align: center; padding: 8px; border-radius: 10px; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--muted); transition: all .2s; }
+.auth-tab.active { background: var(--white); color: var(--primary); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.form-group { margin-bottom: 16px; }
+label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; color: var(--dark); }
+input, select { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 10px; font-size: 14px; font-family: inherit; outline: none; transition: border .2s; background: var(--white); }
+input:focus, select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(78,70,229,0.1); }
+
+.password-wrapper { position: relative; }
+.password-wrapper input { padding-right: 45px; }
+.password-toggle { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--muted); padding: 4px; display: flex; align-items: center; justify-content: center; transition: color 0.2s; }
+.password-toggle:hover { color: var(--primary); }
+.password-toggle svg { width: 20px; height: 20px; }
+
+.btn { width: 100%; padding: 13px; border: none; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all .2s; font-family: inherit; }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: #3730a3; transform: translateY(-1px); }
+.auth-links { text-align: center; margin-top: 14px; }
+.auth-links button { background: none; border: none; color: var(--primary); cursor: pointer; font-size: 13px; font-family: inherit; text-decoration: underline; }
+.msg-err { color: var(--red); font-size: 13px; text-align: center; margin-top: 10px; }
+.msg-ok { color: var(--green); font-size: 13px; text-align: center; margin-top: 10px; }
+
+#app { display: none; flex-direction: column; min-height: 100vh; }
+.topbar { background: var(--white); padding: 0 28px; height: 64px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+.topbar-logo { font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight: 800; color: var(--primary); }
+.topbar-right { display: flex; align-items: center; gap: 14px; }
+.user-chip { display: flex; align-items: center; gap: 8px; background: var(--primary-light); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 500; color: var(--primary); }
+.user-avatar-small { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-light); }
+.role-badge { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 6px; text-transform: uppercase; letter-spacing: .5px; }
+.role-student { background: var(--blue-light); color: var(--blue); }
+.role-company { background: var(--green-light); color: var(--green); }
+.role-entrepreneur { background: var(--amber-light); color: var(--amber); }
+.btn-sm { padding: 7px 14px; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; }
+.btn-logout { background: var(--red-light); color: var(--red); }
+
+.main { display: flex; flex: 1; }
+.sidebar { width: 220px; background: var(--white); border-right: 1px solid var(--border); padding: 20px 12px; display: flex; flex-direction: column; gap: 4px; position: sticky; top: 64px; height: calc(100vh - 64px); overflow-y: auto; }
+.nav-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 10px; cursor: pointer; font-size: 14px; font-weight: 500; color: var(--muted); transition: all .15s; }
+.nav-item:hover { background: var(--surface); color: var(--dark); }
+.nav-item.active { background: var(--primary-light); color: var(--primary); }
+.nav-icon { font-size: 17px; }
+
+.content { flex: 1; padding: 28px; overflow-y: auto; }
+.page { display: none; }
+.page.active { display: block; }
+.page-title { font-family: Arial, Helvetica, sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 6px; }
+.page-sub { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 28px; }
+.stat-card { background: var(--white); border-radius: 16px; padding: 20px; border: 1px solid var(--border); }
+.stat-label { font-size: 12px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+.stat-value { font-size: 28px; font-weight: 600; margin: 4px 0 2px; }
+.stat-change { font-size: 12px; color: var(--muted); }
+.card { background: var(--white); border-radius: 16px; padding: 24px; border: 1px solid var(--border); margin-bottom: 20px; }
+.card-title { font-size: 16px; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+table { width: 100%; border-collapse: collapse; }
+th { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .4px; padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+td { padding: 12px 14px; font-size: 14px; border-bottom: 1px solid var(--border); }
+tr:last-child td { border: none; }
+.grade-pill { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.g-A { background: var(--green-light); color: var(--green); }
+.g-B { background: var(--blue-light); color: var(--blue); }
+.g-C { background: var(--amber-light); color: var(--amber); }
+.g-D { background: #ede9fe; color: #7c3aed; }
+.g-F { background: var(--red-light); color: var(--red); }
+.progress-bar { height: 8px; background: var(--surface); border-radius: 8px; overflow: hidden; margin-top: 6px; }
+.progress-fill { height: 100%; border-radius: 8px; transition: width .5s; }
+.settings-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end; }
+.settings-row .form-group { flex: 1; min-width: 140px; margin-bottom: 0; }
+.btn-action { padding: 11px 18px; border: none; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; }
+.btn-add { background: var(--primary); color: #fff; }
+.btn-del { background: var(--red-light); color: var(--red); }
+.btn-upd { background: var(--green-light); color: var(--green); }
+
+.lb-row { display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.lb-row:last-child { border-bottom: none; }
+.lb-rank { font-size: 16px; font-weight: 700; width: 28px; text-align: center; }
+.lb-avatar { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; object-fit: cover; flex-shrink: 0; }
+.lb-info { flex: 1; min-width: 0; }
+.lb-name { font-size: 14px; font-weight: 500; }
+.lb-role { font-size: 12px; color: var(--muted); }
+.lb-score { font-size: 15px; font-weight: 700; color: var(--primary); white-space: nowrap; }
+
+.lb-row.is-me {
+  background: var(--primary-light);
+  border-radius: 12px;
+  padding: 12px;
+  margin: 4px 0;
+  border: 2px solid var(--primary);
+}
+
+.lb-row.is-me .lb-name { color: var(--primary); font-weight: 700; }
+
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 999; }
+.modal { background: #fff; border-radius: 20px; padding: 32px; width: 100%; max-width: 380px; box-shadow: 0 20px 40px rgba(0,0,0,.2); }
+.modal-title { font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+.modal-sub { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
+.modal-actions { display: flex; gap: 10px; margin-top: 16px; }
+.btn-cancel { flex: 1; padding: 10px; border: 1.5px solid var(--border); background: #fff; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; }
+.btn-confirm { flex: 1; padding: 10px; background: var(--primary); color: #fff; border: none; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; }
+.hint { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+
+.profile-section { display: flex; align-items: center; gap: 24px; margin-bottom: 24px; padding: 24px; background: var(--surface); border-radius: 16px; }
+.profile-img-wrapper { position: relative; width: 120px; height: 120px; flex-shrink: 0; }
+.profile-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid var(--primary-light); background: var(--white); }
+.profile-img-placeholder { width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-light), var(--primary)); display: flex; align-items: center; justify-content: center; font-size: 42px; color: white; font-weight: 700; border: 4px solid var(--primary-light); }
+.profile-upload-btn { position: absolute; bottom: 4px; right: 4px; width: 36px; height: 36px; background: var(--primary); color: white; border: 3px solid var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 16px; transition: transform 0.2s, background 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+.profile-upload-btn:hover { transform: scale(1.15); background: #3730a3; }
+.profile-remove-btn { position: absolute; top: 4px; right: 4px; width: 28px; height: 28px; background: var(--red); color: white; border: 2px solid var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 12px; transition: transform 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+.profile-remove-btn:hover { transform: scale(1.15); }
+.profile-info h3 { font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+.profile-info p { color: var(--muted); font-size: 14px; }
+
+.lb-filter { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.lb-filter-btn { padding: 6px 14px; border: 1px solid var(--border); border-radius: 20px; background: var(--white); color: var(--muted); font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+.lb-filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+.lb-filter-btn:hover:not(.active) { border-color: var(--primary); color: var(--primary); }
+
+.lb-notice { background: var(--amber-light); border: 1px solid var(--amber); border-radius: 12px; padding: 12px 16px; font-size: 13px; color: var(--amber); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.lb-notice svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+.my-rank-card { background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%); border-radius: 16px; padding: 24px; color: white; margin-bottom: 20px; display: flex; align-items: center; gap: 20px; }
+.my-rank-number { font-size: 48px; font-weight: 800; line-height: 1; }
+.my-rank-info { flex: 1; }
+.my-rank-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+.my-rank-value { font-size: 22px; font-weight: 700; margin-top: 4px; }
+.my-rank-score { text-align: right; }
+.my-rank-score-value { font-size: 32px; font-weight: 800; }
+.my-rank-score-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8; }
+
+@media (max-width: 768px) {
+  .auth-wrap { flex-direction: column; gap: 24px; }
+  .auth-left h1 { font-size: 22px; }
+  .insta-feed { grid-template-rows: 160px 160px; width: 300px; }
+  .auth-card { max-width: 100%; }
+  .profile-section { flex-direction: column; text-align: center; }
+  .my-rank-card { flex-direction: column; text-align: center; }
+  .my-rank-score { text-align: center; }
+}
+ 
+.download-btn{
+    display:inline-block;
+    padding:12px ;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:12px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.download-btn:hover{
+    background:#1d4ed8;
+    transform:scale(1.05);
+}
+ 
 </style>
 </head>
-
 <body>
+<div id="authWrap" class="auth-wrap">
+  <div class="auth-left">
+    <h1>Welcome to make your average</h1>
+    <div class="insta-feed">
+      <div class="feed-item">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=600&fit=crop" alt="Team Chat">
+        <div class="chat-bubble">
+          <div class="chat-name">Sarah & Team</div>
+          <div class="chat-msg">Great progress on the project! 🎉</div>
+        </div>
+      </div>
+      <div class="feed-item">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop" alt="Meeting">
+        <div class="chat-bubble">
+          <div class="chat-name">Marketing Team</div>
+          <div class="chat-msg">Strategy meeting at 3pm 💼</div>
+        </div>
+      </div>
+      <div class="feed-item">
+        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop" alt="Students">
+        <div class="chat-bubble">
+          <div class="chat-name">Study Group</div>
+          <div class="chat-msg">Exam prep session tonight! 📚</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-
-<div id="loginBox" class="login">
-  <h2>🔐 private Login</h2>
-  <input id="user" placeholder="Username">
-  <input id="pass" type="password" placeholder="Password">
-  <br><br>
-  <button onclick="login()">Login</button>
-  <p id="msg" style="color:red"></p>
-</div>
-
-
-<div id="dashboard">
-
-<div class="top">
-  <h2>📘 Student Marks Dashboard <span id="lockIcon"></span></h2>
-  <div>
-    <button class="confirm" onclick="confirmMarks()">Confirm</button>
-    <button class="reset" onclick="resetMarks()">Reset</button>
-    <button class="logout" onclick="logout()">Logout</button>
+  <div class="auth-card">
+    <div class="auth-logo">EduBiz</div>
+    <p class="auth-sub">Your all-in-one performance platform</p>
+    <div class="auth-tabs">
+      <div class="auth-tab active" onclick="switchTab('login')">Login</div>
+      <div class="auth-tab" onclick="switchTab('register')">Create Account</div>
+    </div>
+    <div id="loginForm">
+      <div class="form-group"><label>Username</label><input id="l_user" type="text" autocomplete="username" placeholder="Enter your username"></div>
+      <div class="form-group"><label>Password</label><div class="password-wrapper"><input id="l_pass" type="password" autocomplete="current-password" placeholder="Enter your password"><button class="password-toggle" onclick="togglePassword('l_pass', this)" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8zm11 0a3 3 0 11-6 0 3 3 0 016 0z"/><circle cx="12" cy="12" r="3"/></svg></button></div></div>
+      <button class="btn btn-primary" onclick="doLogin()">Login</button>
+      <div class="auth-links"><button onclick="openForgot()">Forgot password?</button></div>
+      <div id="loginMsg"></div>
+    </div>
+    <div id="registerForm" style="display:none">
+      <div class="form-group"><label>Full Name</label><input id="r_name" type="text" placeholder="Your full name"></div>
+      <div class="form-group"><label>Username</label><input id="r_user" type="text" autocomplete="username" placeholder="Choose a username"></div>
+      <div class="form-group"><label>Password</label><div class="password-wrapper"><input id="r_pass" type="password" autocomplete="new-password" placeholder="Choose a password"><button class="password-toggle" onclick="togglePassword('r_pass', this)" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8zm11 0a3 3 0 11-6 0 3 3 0 016 0z"/><circle cx="12" cy="12" r="3"/></svg></button></div></div>
+      <div class="form-group"><label>Secret Answer (for password recovery)</label><input id="r_secret" type="text" placeholder="e.g. Your pet's name"><p class="hint">Remember this — it's used to reset your password</p></div>
+      <div class="form-group"><label>Role</label><select id="r_role"><option value="student">Student</option><option value="company">Company</option><option value="entrepreneur">Entrepreneur</option></select></div>
+      <button class="btn btn-primary" onclick="doRegister()">Create Account</button>
+      <div id="registerMsg"></div>
+    </div>
   </div>
 </div>
 
-<div class="container">
-
-<table>
-<thead>
-<tr>
-  <th>Subject</th>
-  <th>Marks (%)</th>
-  <th>Grade</th>
-  <th>Action</th>
-</tr>
-</thead>
-<tbody id="tableBody"></tbody>
-</table>
-
-<div class="average">
-Average: <span id="avg">0</span>% | Grade:
-<span id="avgGrade">F</span>
+<div id="forgotModal" class="modal-overlay" style="display:none">
+  <div class="modal">
+    <div class="modal-title">Reset Password</div>
+    <p class="modal-sub">Enter your username and secret answer to reset your password.</p>
+    <div class="form-group"><label>Username</label><input id="f_user" type="text" placeholder="Your username"></div>
+    <div class="form-group"><label>Secret Answer</label><input id="f_secret" type="text" placeholder="Your secret answer"></div>
+    <div class="form-group"><label>New Password</label><div class="password-wrapper"><input id="f_newpass" type="password" autocomplete="new-password" placeholder="New password"><button class="password-toggle" onclick="togglePassword('f_newpass', this)" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8zm11 0a3 3 0 11-6 0 3 3 0 016 0z"/><circle cx="12" cy="12" r="3"/></svg></button></div></div>
+    <div id="forgotMsg"></div>
+    <div class="modal-actions"><button class="btn-cancel" onclick="closeForgot()">Cancel</button><button class="btn-confirm" onclick="doForgot()">Reset Password</button></div>
+  </div>
 </div>
 
-
-<div class="settings">
-<h3>⚙️ Subjects Settings</h3>
-<div id="subjectList"></div>
-<input id="newSubject" placeholder="New Subject">
-<button onclick="addSubject()">Add</button>
-</div>
-
-<div class="settings">
-<h3>👤 Account Settings</h3>
-<input id="newUser" placeholder="New Username">
-<input id="newPass" placeholder="New Password">
-<button onclick="updateAccount()">Update Account</button>
-</div>
-
-</div>
+<div id="app">
+  <div class="topbar">
+    <div class="topbar-logo">EduBiz</div>
+    <div class="topbar-right">
+      <span id="topRoleBadge" class="role-badge"></span>
+      <div class="user-chip">
+        <img id="topUserAvatar" class="user-avatar-small" src="" alt="" style="display:none">
+        <span id="topUserInitial" style="display:none"></span>
+        <span id="topUser"></span>
+      </div>
+      <button class="btn-sm btn-logout" onclick="doLogout()">Logout</button>
+    </div>
+    <a href="Edubiz.apk" download>
+    <button class="download-btn">📱 Download App</button>
+</a>
+  </div>
+  <div class="main">
+    <div class="sidebar" id="sidebar"></div>
+    <div class="content" id="content"></div>
+  </div>
 </div>
 
 <script>
 
-let account = JSON.parse(localStorage.getItem("account")) || {
-  username:"dany",
-  password:"0340"
-};
-localStorage.setItem("account",JSON.stringify(account));
-
-let locked = localStorage.getItem("locked")==="yes";
-let data = JSON.parse(localStorage.getItem("marks")) || [
-  {subject:"Mathematics",mark:""},
-  {subject:"English",mark:""},
-  {subject:"Physics",mark:""}
-];
-
-function login(){
-  if(user.value===account.username && pass.value===account.password){
-    sessionStorage.setItem("logged","yes");
-    loginBox.style.display="none";
-    dashboard.style.display="block";
-    draw();
-  }else msg.innerText="Wrong login ❌";
-}
-if(sessionStorage.getItem("logged")==="yes"){
-  loginBox.style.display="none";
-  dashboard.style.display="block";
+function togglePassword(inputId, btn) {
+  const input = document.getElementById(inputId);
+  const isPassword = input.type === 'password';
+  input.type = isPassword ? 'text' : 'password';
+  btn.innerHTML = isPassword
+    ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>'
+    : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8zm11 0a3 3 0 11-6 0 3 3 0 016 0z"/><circle cx="12" cy="12" r="3"/></svg>';
 }
 
+function getUsers() { return JSON.parse(localStorage.getItem('ebiz_users') || '[]'); }
+function saveUsers(u) { localStorage.setItem('ebiz_users', JSON.stringify(u)); }
+function getSession() { return JSON.parse(sessionStorage.getItem('ebiz_session') || 'null'); }
+function saveSession(s) { sessionStorage.setItem('ebiz_session', JSON.stringify(s)); }
 
-function logout(){
-  sessionStorage.clear();
-  location.reload();
+// No seed data — only the registered user exists in their own browser
+if (!getUsers().length) {
+  saveUsers([]);
 }
 
+let currentUser = null;
 
-function getGrade(m){
-  if(m>=90)return"A";
-  if(m>=80)return"B";
-  if(m>=70)return"C";
-  if(m>=60)return"D";
-  return"F";
+function switchTab(tab) {
+  document.querySelectorAll('.auth-tab').forEach((t,i)=> t.classList.toggle('active', (tab==='login'&&i===0)||(tab==='register'&&i===1)));
+  document.getElementById('loginForm').style.display = tab==='login'?'block':'none';
+  document.getElementById('registerForm').style.display = tab==='register'?'block':'none';
 }
 
+function doLogin() {
+  const u = document.getElementById('l_user').value.trim();
+  const p = document.getElementById('l_pass').value;
+  if (!u || !p) { showMsg('loginMsg','Please enter username and password','err'); return; }
+  const users = getUsers();
+  const found = users.find(x => x.username===u && x.password===p);
+  if (!found) { showMsg('loginMsg','Wrong username or password','err'); return; }
+  currentUser = found;
+  saveSession({username: u});
+  openDashboard();
+}
 
-function draw(){
-  tableBody.innerHTML="";
-  let total=0,count=0;
+function doRegister() {
+  const name = document.getElementById('r_name').value.trim();
+  const u = document.getElementById('r_user').value.trim();
+  const p = document.getElementById('r_pass').value;
+  const secret = document.getElementById('r_secret').value.trim();
+  const role = document.getElementById('r_role').value;
+  if (!name||!u||!p||!secret) { showMsg('registerMsg','Please fill all fields','err'); return; }
+  const users = getUsers();
+  if (users.find(x=>x.username===u)) { showMsg('registerMsg','Username already taken','err'); return; }
+  const newUser = { username:u, password:p, name, role, secret, avatar:'' };
+  if (role==='student') newUser.subjects=[{n:'Mathematics',m:''},{n:'English',m:''},{n:'Physics',m:''}], newUser.confirmed=false;
+  if (role==='company') newUser.metrics={revenue:0,employees:0,projects:0,growth:0}, newUser.staff=[];
+  if (role==='entrepreneur') newUser.business='My Business', newUser.metrics={funding:0,customers:0,mrr:0,growth:0}, newUser.tasks=[];
+  users.push(newUser);
+  saveUsers(users);
+  showMsg('registerMsg','Account created! Please login','ok');
+  setTimeout(()=>switchTab('login'),1500);
+}
 
-  data.forEach(d=>{
-    let g=d.mark!==""?getGrade(d.mark):"-";
-    tableBody.innerHTML+=`
-    <tr>
-      <td>${d.subject}</td>
-      <td>${d.mark||"-"}</td>
-      <td class="grade-${g}">${g}</td>
-      <td><button class="edit" onclick="editMark('${d.subject}')">Edit</button></td>
-    </tr>`;
-    if(d.mark!==""){total+=+d.mark;count++}
+function openForgot() { document.getElementById('forgotModal').style.display='flex'; }
+function closeForgot() { document.getElementById('forgotModal').style.display='none'; }
+function doForgot() {
+  const u = document.getElementById('f_user').value.trim();
+  const s = document.getElementById('f_secret').value.trim();
+  const np = document.getElementById('f_newpass').value;
+  const users = getUsers();
+  const idx = users.findIndex(x=>x.username===u && x.secret.toLowerCase()===s.toLowerCase());
+  if (idx<0) { showMsg('forgotMsg','Username or secret answer incorrect','err'); return; }
+  if (!np) { showMsg('forgotMsg','Please enter a new password','err'); return; }
+  users[idx].password = np;
+  saveUsers(users);
+  showMsg('forgotMsg','Password reset! You can now login','ok');
+  setTimeout(closeForgot, 1800);
+}
+
+function doLogout() { sessionStorage.clear(); location.reload(); }
+
+function showMsg(id, txt, type) {
+  const el = document.getElementById(id);
+  el.innerHTML = `<p class="${type==='ok'?'msg-ok':'msg-err'}">${txt}</p>`;
+}
+
+function updateAvatarDisplay() {
+  const avatarImg = document.getElementById('topUserAvatar');
+  const avatarInitial = document.getElementById('topUserInitial');
+  if (currentUser.avatar) {
+    avatarImg.src = currentUser.avatar;
+    avatarImg.style.display = 'block';
+    avatarInitial.style.display = 'none';
+  } else {
+    avatarImg.style.display = 'none';
+    avatarInitial.style.display = 'inline-flex';
+    avatarInitial.textContent = currentUser.name[0].toUpperCase();
+    avatarInitial.style.cssText = 'width:28px;height:28px;border-radius:50%;background:var(--primary);color:white;align-items:center;justify-content:center;font-size:12px;font-weight:600;';
+  }
+}
+
+function handleProfileUpload() {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'image/*';
+  input.onchange = function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      const img = new Image();
+      img.onload = function() {
+        const canvas = document.createElement('canvas');
+        const maxSize = 300;
+        let width = img.width, height = img.height;
+        if (width > height) { if (width > maxSize) { height *= maxSize / width; width = maxSize; } }
+        else { if (height > maxSize) { width *= maxSize / height; height = maxSize; } }
+        canvas.width = width; canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+        currentUser.avatar = canvas.toDataURL('image/jpeg', 0.8);
+        syncUser(); renderSettings(); updateAvatarDisplay();
+        showMsg('settings-msg','Profile image updated','ok');
+      };
+      img.src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  };
+  input.click();
+}
+
+function removeProfileImage() {
+  if (!currentUser.avatar) return;
+  currentUser.avatar = '';
+  syncUser(); renderSettings(); updateAvatarDisplay();
+  showMsg('settings-msg','Profile image removed','ok');
+}
+
+function openDashboard() {
+  document.getElementById('authWrap').style.display = 'none';
+  document.getElementById('app').style.display = 'flex';
+  document.getElementById('topUser').textContent = currentUser.name;
+  const badge = document.getElementById('topRoleBadge');
+  badge.textContent = currentUser.role;
+  badge.className = 'role-badge role-'+currentUser.role;
+  updateAvatarDisplay();
+  if (currentUser.role==='student') buildStudent();
+  else if (currentUser.role==='company') buildCompany();
+  else buildEntrepreneur();
+}
+
+window.addEventListener('DOMContentLoaded', ()=>{
+  const s = getSession();
+  if (s) {
+    const users = getUsers();
+    currentUser = users.find(x=>x.username===s.username);
+    if (currentUser) openDashboard();
+  }
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    if (loginForm.style.display !== 'none' && document.activeElement?.closest('#loginForm')) doLogin();
+    else if (registerForm.style.display !== 'none' && document.activeElement?.closest('#registerForm')) doRegister();
+  }
+});
+
+function buildNav(items) {
+  const sb = document.getElementById('sidebar');
+  sb.innerHTML = items.map(it=>`<div class="nav-item ${it.active?'active':''}" onclick="showPage('${it.id}')"><span class="nav-icon">${it.icon}</span> ${it.label}</div>`).join('');
+}
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const el = document.getElementById(id);
+  if (el) el.classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n=>{ n.classList.toggle('active', n.getAttribute('onclick').includes(`'${id}'`)); });
+}
+
+function getGrade(m) { if (m==='') return '-'; if (m>=90) return 'A'; if (m>=80) return 'B'; if (m>=70) return 'C'; if (m>=60) return 'D'; return 'F'; }
+function gradeColor(g) { return {A:'var(--green)',B:'var(--blue)',C:'var(--amber)',D:'#7c3aed',F:'var(--red)','-':'var(--muted)'}[g]||'var(--muted)'; }
+
+// Calculate average for any user
+function calculateUserAverage(user) {
+  if (user.role === 'student') {
+    const valid = (user.subjects||[]).filter(x => x.m !== '' && !isNaN(x.m));
+    return valid.length ? valid.reduce((s,x) => s + (+x.m), 0) / valid.length : 0;
+  } else if (user.role === 'company') {
+    const staff = user.staff || [];
+    return staff.length ? staff.reduce((s,x) => s + (+x.score), 0) / staff.length : 0;
+  } else if (user.role === 'entrepreneur') {
+    const m = user.metrics || {};
+    const tasks = user.tasks || [];
+    const done = tasks.filter(t => t.done).length;
+    const taskScore = tasks.length ? (done / tasks.length) * 100 : 0;
+    const fundingScore = Math.min(100, (m.funding || 0) / 1000);
+    const customerScore = Math.min(100, (m.customers || 0) / 2);
+    const mrrScore = Math.min(100, (m.mrr || 0) / 100);
+    const growthScore = Math.min(100, m.growth || 0);
+    return (taskScore * 0.3) + (fundingScore * 0.2) + (customerScore * 0.2) + (mrrScore * 0.2) + (growthScore * 0.1);
+  }
+  return 0;
+}
+
+// Generate simulated competitors for the leaderboard
+function generateSimulatedUsers(myRole, myAverage) {
+  const names = {
+    student: ['Emma Wilson','Liam Chen','Sofia Rodriguez','Noah Kim','Ava Patel','Ethan Brooks','Mia Nakamura','Lucas Fernandez','Chloe Anderson','Aiden Murphy','Isabella Lee','Mason Taylor','Zoe Campbell','Jack Thompson','Lily Hughes'],
+    company: ['Nexus Technologies','Quantum Labs','Pinnacle Corp','Atlas Digital','Horizon Industries','Vertex Solutions','Catalyst Group','Forge Systems','Beacon Analytics','Stratos Inc'],
+    entrepreneur: ['Luna Ventures','Apex Startup','Nova Ideas','Pixel Forge','GreenLeaf Co','CloudFirst','DataWave','SmartPath','BrightCore','TechSeed']
+  };
+
+  const roleLabels = { student: 'Student', company: 'Company', entrepreneur: 'Startup' };
+  const roleColors = { student: {bg:'var(--blue-light)',c:'var(--blue)'}, company: {bg:'var(--green-light)',c:'var(--green)'}, entrepreneur: {bg:'var(--amber-light)',c:'var(--amber)'} };
+  const pool = names[myRole] || names.student;
+  const rc = roleColors[myRole];
+  const label = roleLabels[myRole];
+
+  // Generate 12 simulated users with varied scores
+  const simulated = [];
+  const usedNames = new Set();
+  
+  for (let i = 0; i < 12; i++) {
+    let name;
+    do { name = pool[Math.floor(Math.random() * pool.length)]; } while (usedNames.has(name) && usedNames.size < pool.length);
+    usedNames.add(name);
+
+    // Generate score that's somewhat realistic around the user's score
+    let score;
+    const rand = Math.random();
+    if (rand < 0.1) score = Math.max(0, myAverage - 30 - Math.random() * 20); // much lower
+    else if (rand < 0.3) score = Math.max(0, myAverage - 15 - Math.random() * 15); // lower
+    else if (rand < 0.6) score = myAverage + (Math.random() - 0.5) * 20; // close
+    else if (rand < 0.85) score = Math.min(100, myAverage + 10 + Math.random() * 15); // higher
+    else score = Math.min(100, myAverage + 20 + Math.random() * 10); // much higher
+
+    score = Math.round(Math.max(0, Math.min(100, score)) * 10) / 10;
+
+    simulated.push({
+      name: name,
+      role: myRole,
+      roleDisplay: label,
+      avatar: '',
+      average: score,
+      scoreDisplay: score.toFixed(1) + '%',
+      avatarBg: rc.bg,
+      avatarColor: rc.c,
+      isMe: false
+    });
+  }
+
+  // Add the current user
+  simulated.push({
+    name: currentUser.name,
+    role: myRole,
+    roleDisplay: label + ' (You)',
+    avatar: currentUser.avatar || '',
+    average: myAverage,
+    scoreDisplay: myAverage.toFixed(1) + '%',
+    avatarBg: rc.bg,
+    avatarColor: rc.c,
+    isMe: true
   });
 
-  let a=count?(total/count).toFixed(1):0;
-  avg.innerText=a;
-  avgGrade.innerText=getGrade(a);
-  lockIcon.innerText=locked?"🔒":"";
+  // Sort by average descending
+  simulated.sort((a, b) => b.average - a.average);
 
-  localStorage.setItem("marks",JSON.stringify(data));
-  drawSubjects();
+  return simulated;
 }
 
-function editMark(sub){
-  if(locked) return alert("Marks confirmed ❌");
-  let i=data.findIndex(d=>d.subject===sub);
-  let m=prompt("Enter marks (0-100):",data[i].mark);
-  if(m!==null && m>=0 && m<=100){
-    data[i].mark=Number(m);
-    draw();
+let currentLbFilter = 'all';
+
+function renderGlobalLeaderboard(filter) {
+  currentLbFilter = filter || 'all';
+  const myRole = currentUser.role;
+  const myAverage = calculateUserAverage(currentUser);
+
+  let data;
+  if (filter === 'all' || filter === myRole) {
+    data = generateSimulatedUsers(myRole, myAverage);
+  } else {
+    // Show simulated users of the selected role
+    const fakeAvg = 50 + Math.random() * 40;
+    data = generateSimulatedUsers(filter, fakeAvg);
+    // Remove "You" marker
+    data = data.map(d => ({...d, isMe: false, roleDisplay: d.roleDisplay.replace(' (You)', '')}));
   }
-}
 
-function confirmMarks(){
-  if(confirm("Confirm marks?")){
-    locked=true;
-    localStorage.setItem("locked","yes");
-    draw();
+  // Find current user's rank
+  const myRank = data.findIndex(d => d.isMe) + 1;
+  const myData = data.find(d => d.isMe);
+
+  const medalColors = ['#fbbf24', '#9ca3af', '#c2410c'];
+  const roleColors = { student: {bg:'var(--blue-light)',c:'var(--blue)'}, company: {bg:'var(--green-light)',c:'var(--green)'}, entrepreneur: {bg:'var(--amber-light)',c:'var(--amber)'} };
+
+  let html = '';
+
+  // Notice about simulated data
+  html += `<div class="lb-notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    This leaderboard shows simulated competitors for comparison. To share real rankings, a backend server is required.
+  </div>`;
+
+  // My rank card
+  if (myData) {
+    html += `<div class="my-rank-card">
+      <div class="my-rank-number">#${myRank}</div>
+      <div class="my-rank-info">
+        <div class="my-rank-label">Your Rank</div>
+        <div class="my-rank-value">${myData.name}</div>
+      </div>
+      <div class="my-rank-score">
+        <div class="my-rank-score-value">${myData.scoreDisplay}</div>
+        <div class="my-rank-score-label">Average Score</div>
+      </div>
+    </div>`;
   }
-}
-function resetMarks(){
-  if(confirm("Reset all marks?")){
-    locked=false;
-    localStorage.setItem("locked","no");
-    data.forEach(d=>d.mark="");
-    draw();
-  }
-}
 
+  // Filter buttons
+  html += `<div class="lb-filter">
+    <button class="lb-filter-btn ${filter==='all'?'active':''}" onclick="filterLeaderboard('all')">All</button>
+    <button class="lb-filter-btn ${filter==='student'?'active':''}" onclick="filterLeaderboard('student')">Students</button>
+    <button class="lb-filter-btn ${filter==='company'?'active':''}" onclick="filterLeaderboard('company')">Companies</button>
+    <button class="lb-filter-btn ${filter==='entrepreneur'?'active':''}" onclick="filterLeaderboard('entrepreneur')">Entrepreneurs</button>
+  </div>`;
 
-function drawSubjects(){
-  subjectList.innerHTML="";
-  data.forEach((d,i)=>{
-    subjectList.innerHTML+=`
-      <div>
-        <input value="${d.subject}" id="s${i}">
-        <button onclick="updateSubject(${i})">Update</button>
-        <button onclick="deleteSubject(${i})">Delete</button>
-      </div>`;
+  // Leaderboard list
+  html += `<div class="card"><div class="card-title">Rankings</div>`;
+  data.forEach((r, i) => {
+    const rc = roleColors[r.role] || roleColors.student;
+    html += `<div class="lb-row ${r.isMe ? 'is-me' : ''}">
+      <div class="lb-rank" style="color:${medalColors[i] || 'var(--muted)'}">${i===0?'🥇':i===1?'🥈':i===2?'🥉':i+1}</div>
+      ${r.avatar ? `<img class="lb-avatar" src="${r.avatar}" alt="">` : `<div class="lb-avatar" style="background:${r.avatarBg};color:${r.avatarColor}">${r.name[0]}</div>`}
+      <div class="lb-info">
+        <div class="lb-name">${r.name}${r.isMe ? ' <span style="font-size:11px;background:var(--primary);color:white;padding:1px 6px;border-radius:4px;margin-left:6px">YOU</span>' : ''}</div>
+        <div class="lb-role">${r.roleDisplay}</div>
+      </div>
+      <div class="lb-score">${r.scoreDisplay}</div>
+    </div>`;
   });
-}
-function updateSubject(i){
-  data[i].subject=document.getElementById("s"+i).value;
-  draw();
-}
-function deleteSubject(i){
-  data.splice(i,1);
-  draw();
-}
-function addSubject(){
-  if(newSubject.value.trim()){
-    data.push({subject:newSubject.value.trim(),mark:""});
-    newSubject.value="";
-    draw();
-  }
+  html += `</div>`;
+
+  return html;
 }
 
-
-function updateAccount(){
-  if(newUser.value) account.username=newUser.value;
-  if(newPass.value) account.password=newPass.value;
-  localStorage.setItem("account",JSON.stringify(account));
-  alert("Account updated ✅");
+function filterLeaderboard(filter) {
+  const lbElement = document.getElementById('global-lb');
+  if (lbElement) lbElement.innerHTML = renderGlobalLeaderboard(filter);
 }
+
+function renderProfileSection() {
+  return `<div class="profile-section">
+    <div class="profile-img-wrapper">
+      ${currentUser.avatar ? `<img class="profile-img" src="${currentUser.avatar}" alt="Profile">` : `<div class="profile-img-placeholder">${currentUser.name[0].toUpperCase()}</div>`}
+      <div class="profile-upload-btn" onclick="handleProfileUpload()" title="Change photo">📷</div>
+      ${currentUser.avatar ? `<div class="profile-remove-btn" onclick="removeProfileImage()" title="Remove photo">✕</div>` : ''}
+    </div>
+    <div class="profile-info">
+      <h3>${currentUser.name}</h3>
+      <p>@${currentUser.username} · ${currentUser.role.charAt(0).toUpperCase() + currentUser.role.slice(1)}</p>
+    </div>
+  </div>`;
+}
+
+function renderSettings() {
+  const settingsPage = document.getElementById('settings-content');
+  if (!settingsPage) return;
+  settingsPage.innerHTML = `${renderProfileSection()}
+    <div class="card">
+      <div class="card-title">Account Settings</div>
+      <div class="form-group"><label>New Username</label><input id="s-new-user" type="text" placeholder="Leave blank to keep current"></div>
+      <div class="form-group"><label>New Password</label><div class="password-wrapper"><input id="s-new-pass" type="password" autocomplete="new-password" placeholder="Leave blank to keep current"><button class="password-toggle" onclick="togglePassword('s-new-pass', this)" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8zm11 0a3 3 0 11-6 0 3 3 0 016 0z"/><circle cx="12" cy="12" r="3"/></svg></button></div></div>
+      <button class="btn-action btn-add" onclick="updateAccount()">Update Account</button>
+      <div id="settings-msg" style="margin-top:12px"></div>
+    </div>`;
+}
+
+function updateAccount() {
+  const u = document.getElementById('s-new-user')?.value.trim();
+  const p = document.getElementById('s-new-pass')?.value;
+  if (u) currentUser.username = u;
+  if (p) currentUser.password = p;
+  syncUser();
+  if (u) { saveSession({username:u}); document.getElementById('topUser').textContent = currentUser.name; }
+  showMsg('settings-msg','Account updated','ok');
+}
+
+function buildStudent() {
+  buildNav([
+    {id:'s-marks',icon:'📊',label:'My Marks',active:true},
+    {id:'s-average',icon:'📈',label:'Average & Grade'},
+    {id:'s-subjects',icon:'📚',label:'Subjects'},
+    {id:'s-leaderboard',icon:'🏆',label:'Leaderboard'},
+    {id:'s-settings',icon:'⚙️',label:'Settings'},
+  ]);
+  const c = document.getElementById('content');
+  c.innerHTML = `
+    <div id="s-marks" class="page active">
+      <div class="page-title">My Marks</div>
+      <p class="page-sub">Track your subject performance below</p>
+      <div class="stats-grid" id="s-statgrid"></div>
+      <div class="card"><div class="card-title">Subject Marks</div><table><thead><tr><th>Subject</th><th>Marks (%)</th><th>Grade</th><th>Progress</th><th>Action</th></tr></thead><tbody id="s-table"></tbody></table></div>
+    </div>
+    <div id="s-average" class="page">
+      <div class="page-title">Average & Grade</div>
+      <p class="page-sub">Your overall academic performance</p>
+      <div class="stats-grid" id="s-avg-cards"></div>
+      <div class="card"><div class="card-title">Subject Breakdown</div><div id="s-bars"></div></div>
+    </div>
+    <div id="s-subjects" class="page">
+      <div class="page-title">Manage Subjects</div>
+      <p class="page-sub">Add, rename, or remove subjects</p>
+      <div class="card"><div class="card-title">Add Subject</div><div class="settings-row"><div class="form-group" style="flex:1"><label>New Subject Name</label><input id="s-new-subj" placeholder="e.g. Biology"></div><button class="btn-action btn-add" onclick="studentAddSubject()">Add Subject</button></div></div>
+      <div class="card" id="s-subj-list"><div class="card-title">Current Subjects</div><div id="s-subj-items"></div></div>
+    </div>
+    <div id="s-leaderboard" class="page">
+      <div class="page-title">Leaderboard</div>
+      <p class="page-sub">See how you rank against others</p>
+      <div id="global-lb"></div>
+    </div>
+    <div id="s-settings" class="page">
+      <div class="page-title">Settings</div>
+      <p class="page-sub">Update your profile and account details</p>
+      <div id="settings-content"></div>
+      <div class="card" style="margin-top:20px"><div class="card-title">Confirm / Reset Marks</div><div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px"><button class="btn-action btn-upd" onclick="studentConfirm()">Confirm All Marks</button><button class="btn-action btn-del" onclick="studentReset()">Reset All Marks</button></div><p id="s-lock-msg" class="hint" style="margin-top:8px"></p></div>
+    </div>`;
+  renderStudent(); renderSettings();
+  document.getElementById('global-lb').innerHTML = renderGlobalLeaderboard('all');
+}
+
+function renderStudent() {
+  const s = currentUser;
+  const subs = s.subjects;
+  const valid = subs.filter(x=>x.m!=='');
+  const avg = valid.length ? (valid.reduce((a,b)=>a+(+b.m),0)/valid.length).toFixed(1) : 0;
+  const avgG = valid.length ? getGrade(+avg) : '-';
+  document.getElementById('s-statgrid').innerHTML = `
+    <div class="stat-card"><div class="stat-label">Subjects</div><div class="stat-value">${subs.length}</div></div>
+    <div class="stat-card"><div class="stat-label">Average</div><div class="stat-value" style="color:var(--primary)">${avg}%</div></div>
+    <div class="stat-card"><div class="stat-label">Overall Grade</div><div class="stat-value" style="color:${gradeColor(avgG)}">${avgG}</div></div>
+    <div class="stat-card"><div class="stat-label">Status</div><div class="stat-value" style="font-size:16px">${s.confirmed?'Confirmed':'Open'}</div></div>`;
+  document.getElementById('s-table').innerHTML = subs.map((sub,i)=>{
+    const g = sub.m!=='' ? getGrade(+sub.m) : '-';
+    const pct = sub.m!=='' ? sub.m : 0;
+    return `<tr><td><strong>${sub.n}</strong></td><td>${sub.m!==''?sub.m+' %':'—'}</td><td><span class="grade-pill g-${g}">${g}</span></td><td style="min-width:120px"><div class="progress-bar"><div class="progress-fill" style="width:${pct}%;background:${gradeColor(g)}"></div></div></td><td>${s.confirmed?'<span style="color:var(--muted);font-size:12px">Locked</span>':`<button class="btn-action btn-add" style="padding:5px 12px;font-size:12px" onclick="studentEditMark(${i})">Edit</button>`}</td></tr>`;
+  }).join('');
+  document.getElementById('s-avg-cards').innerHTML = `
+    <div class="stat-card"><div class="stat-label">Overall Average</div><div class="stat-value" style="color:var(--primary)">${avg}%</div></div>
+    <div class="stat-card"><div class="stat-label">Grade</div><div class="stat-value" style="color:${gradeColor(avgG)}">${avgG}</div></div>
+    <div class="stat-card"><div class="stat-label">Subjects Graded</div><div class="stat-value">${valid.length}/${subs.length}</div></div>`;
+  document.getElementById('s-bars').innerHTML = subs.map(sub=>{
+    const g = sub.m!=='' ? getGrade(+sub.m) : '-';
+    return `<div style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>${sub.n}</span><span style="font-weight:600;color:${gradeColor(g)}">${sub.m!==''?sub.m+'%':'—'} (${g})</span></div><div class="progress-bar"><div class="progress-fill" style="width:${sub.m||0}%;background:${gradeColor(g)}"></div></div></div>`;
+  }).join('');
+  document.getElementById('s-subj-items').innerHTML = subs.map((sub,i)=>`<div class="settings-row" style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--border)"><div class="form-group" style="flex:1;margin-bottom:0"><input id="sn${i}" value="${sub.n}"></div><button class="btn-action btn-upd" onclick="studentRenameSubj(${i})">Rename</button><button class="btn-action btn-del" onclick="studentDelSubj(${i})">Delete</button></div>`).join('');
+  
+  const globalLb = document.getElementById('global-lb');
+  if (globalLb) globalLb.innerHTML = renderGlobalLeaderboard(currentLbFilter);
+  
+  document.getElementById('s-lock-msg').textContent = s.confirmed ? 'Marks are currently confirmed and locked.' : 'Marks are open for editing.';
+}
+
+function studentEditMark(i) { if (currentUser.confirmed) { alert('Marks are confirmed. Reset first.'); return; } const m = prompt('Enter mark (0–100):', currentUser.subjects[i].m); if (m===null) return; const n = +m; if (isNaN(n)||n<0||n>100) { alert('Please enter a number 0–100'); return; } currentUser.subjects[i].m = n; syncUser(); renderStudent(); }
+function studentAddSubject() { const v = document.getElementById('s-new-subj').value.trim(); if (!v) return; currentUser.subjects.push({n:v,m:''}); document.getElementById('s-new-subj').value=''; syncUser(); renderStudent(); }
+function studentRenameSubj(i) { const v = document.getElementById('sn'+i).value.trim(); if (!v) return; currentUser.subjects[i].n = v; syncUser(); renderStudent(); }
+function studentDelSubj(i) { if (!confirm('Delete this subject?')) return; currentUser.subjects.splice(i,1); syncUser(); renderStudent(); }
+function studentConfirm() { if (!confirm('Confirm and lock all marks?')) return; currentUser.confirmed = true; syncUser(); renderStudent(); }
+function studentReset() { if (!confirm('Reset all marks?')) return; currentUser.confirmed = false; currentUser.subjects.forEach(s=>s.m=''); syncUser(); renderStudent(); }
+
+function buildCompany() {
+  buildNav([{id:'c-overview',icon:'🏢',label:'Overview',active:true},{id:'c-staff',icon:'👥',label:'Staff Performance'},{id:'c-leaderboard',icon:'🏆',label:'Leaderboard'},{id:'c-settings',icon:'⚙️',label:'Settings'}]);
+  const c = document.getElementById('content');
+  c.innerHTML = `<div id="c-overview" class="page active"><div class="page-title">Company Overview</div><p class="page-sub">Real-time business metrics for ${currentUser.name}</p><div class="stats-grid" id="c-statgrid"></div><div class="card"><div class="card-title">Performance Breakdown</div><div id="c-bars"></div></div></div>
+  <div id="c-staff" class="page"><div class="page-title">Staff Performance</div><p class="page-sub">Track and rate your team members</p><div class="card"><div class="card-title">Add Staff Member</div><div class="settings-row"><div class="form-group" style="flex:1"><label>Name</label><input id="c-sname" placeholder="Full name"></div><div class="form-group" style="flex:1"><label>Role</label><input id="c-srole" placeholder="Job role"></div><div class="form-group" style="width:100px"><label>Score</label><input id="c-sscore" type="number" min="0" max="100" placeholder="0-100"></div><button class="btn-action btn-add" onclick="companyAddStaff()">Add</button></div></div><div class="card"><div class="card-title">Team</div><table><thead><tr><th>Name</th><th>Role</th><th>Score</th><th>Grade</th><th>Action</th></tr></thead><tbody id="c-staff-table"></tbody></table></div></div>
+  <div id="c-leaderboard" class="page"><div class="page-title">Leaderboard</div><p class="page-sub">See how you rank against others</p><div id="global-lb"></div></div>
+  <div id="c-settings" class="page"><div class="page-title">Settings</div><p class="page-sub">Update company profile and metrics</p><div id="settings-content"></div><div class="card" style="margin-top:20px"><div class="card-title">Update Metrics</div><div class="settings-row"><div class="form-group"><label>Revenue ($)</label><input id="c-rev" type="number" placeholder="Revenue"></div><div class="form-group"><label>Employees</label><input id="c-emp" type="number" placeholder="Count"></div><div class="form-group"><label>Projects</label><input id="c-proj" type="number" placeholder="Count"></div><div class="form-group"><label>Growth (%)</label><input id="c-growth" type="number" placeholder="%"></div></div><button class="btn-action btn-add" onclick="companyUpdateMetrics()">Save Metrics</button><div id="c-metric-msg" style="margin-top:12px"></div></div></div>`;
+  renderCompany(); renderSettings();
+  document.getElementById('global-lb').innerHTML = renderGlobalLeaderboard('all');
+}
+
+function renderCompany() {
+  const m = currentUser.metrics;
+  const staff = currentUser.staff || [];
+  const avgScore = staff.length ? (staff.reduce((a,b)=>a+(+b.score),0)/staff.length).toFixed(1) : 0;
+  document.getElementById('c-statgrid').innerHTML = `<div class="stat-card"><div class="stat-label">Revenue</div><div class="stat-value" style="color:var(--green)">$${(m.revenue||0).toLocaleString()}</div></div><div class="stat-card"><div class="stat-label">Employees</div><div class="stat-value">${m.employees||0}</div></div><div class="stat-card"><div class="stat-label">Projects</div><div class="stat-value" style="color:var(--blue)">${m.projects||0}</div></div><div class="stat-card"><div class="stat-label">Growth</div><div class="stat-value" style="color:var(--primary)">${m.growth||0}%</div></div><div class="stat-card"><div class="stat-label">Team Score</div><div class="stat-value" style="color:var(--amber)">${avgScore}%</div></div>`;
+  const bars = [{label:'Revenue Performance',val:Math.min(100,(m.revenue/200000)*100),color:'var(--green)'},{label:'Team Performance',val:+avgScore,color:'var(--blue)'},{label:'Growth Rate',val:Math.min(100,m.growth||0),color:'var(--primary)'}];
+  document.getElementById('c-bars').innerHTML = bars.map(b=>`<div style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>${b.label}</span><span style="font-weight:600;color:${b.color}">${b.val.toFixed(1)}%</span></div><div class="progress-bar"><div class="progress-fill" style="width:${b.val}%;background:${b.color}"></div></div></div>`).join('');
+  document.getElementById('c-staff-table').innerHTML = staff.map((s,i)=>{const g=getGrade(+s.score);return `<tr><td><strong>${s.name}</strong></td><td>${s.role}</td><td>${s.score}%</td><td><span class="grade-pill g-${g}">${g}</span></td><td><button class="btn-action btn-del" style="padding:5px 12px;font-size:12px" onclick="companyDelStaff(${i})">Remove</button></td></tr>`;}).join('') || '<tr><td colspan="5" style="color:var(--muted);text-align:center">No staff added yet</td></tr>';
+  
+  const globalLb = document.getElementById('global-lb');
+  if (globalLb) globalLb.innerHTML = renderGlobalLeaderboard(currentLbFilter);
+  
+  if (document.getElementById('c-rev')) { document.getElementById('c-rev').value=m.revenue||''; document.getElementById('c-emp').value=m.employees||''; document.getElementById('c-proj').value=m.projects||''; document.getElementById('c-growth').value=m.growth||''; }
+}
+
+function companyAddStaff() { const name=document.getElementById('c-sname').value.trim(); const role=document.getElementById('c-srole').value.trim(); const score=+document.getElementById('c-sscore').value; if (!name||!role||isNaN(score)) { alert('Fill all fields'); return; } currentUser.staff.push({name,role,score}); syncUser(); renderCompany(); }
+function companyDelStaff(i) { if (!confirm('Remove staff member?')) return; currentUser.staff.splice(i,1); syncUser(); renderCompany(); }
+function companyUpdateMetrics() { currentUser.metrics.revenue=+document.getElementById('c-rev').value||0; currentUser.metrics.employees=+document.getElementById('c-emp').value||0; currentUser.metrics.projects=+document.getElementById('c-proj').value||0; currentUser.metrics.growth=+document.getElementById('c-growth').value||0; syncUser(); renderCompany(); showMsg('c-metric-msg','Metrics saved','ok'); }
+
+function buildEntrepreneur() {
+  buildNav([{id:'e-overview',icon:'🚀',label:'Overview',active:true},{id:'e-tasks',icon:'✅',label:'Tasks & Milestones'},{id:'e-leaderboard',icon:'🏆',label:'Leaderboard'},{id:'e-settings',icon:'⚙️',label:'Settings'}]);
+  const c = document.getElementById('content');
+  c.innerHTML = `<div id="e-overview" class="page active"><div class="page-title">Startup Overview</div><p class="page-sub">${currentUser.business||'Your business'} — performance at a glance</p><div class="stats-grid" id="e-statgrid"></div><div class="card"><div class="card-title">Startup Health Score</div><div id="e-bars"></div></div></div>
+  <div id="e-tasks" class="page"><div class="page-title">Tasks & Milestones</div><p class="page-sub">Track your startup journey</p><div class="card"><div class="card-title">Add Task</div><div class="settings-row"><div class="form-group" style="flex:1"><label>Task</label><input id="e-new-task" placeholder="e.g. Launch MVP"></div><button class="btn-action btn-add" onclick="entreAddTask()">Add</button></div></div><div class="card"><div class="card-title">All Tasks</div><div id="e-task-list"></div></div></div>
+  <div id="e-leaderboard" class="page"><div class="page-title">Leaderboard</div><p class="page-sub">See how you rank against others</p><div id="global-lb"></div></div>
+  <div id="e-settings" class="page"><div class="page-title">Settings</div><p class="page-sub">Update your profile and business info</p><div id="settings-content"></div><div class="card" style="margin-top:20px"><div class="card-title">Business Info</div><div class="form-group"><label>Business Name</label><input id="e-bname" placeholder="Your startup name"></div><hr class="divider"><div class="card-title">Update Metrics</div><div class="settings-row"><div class="form-group"><label>Funding ($)</label><input id="e-fund" type="number" placeholder="0"></div><div class="form-group"><label>Customers</label><input id="e-cust" type="number" placeholder="0"></div><div class="form-group"><label>MRR ($)</label><input id="e-mrr" type="number" placeholder="0"></div><div class="form-group"><label>Growth (%)</label><input id="e-growth" type="number" placeholder="0"></div></div><button class="btn-action btn-add" onclick="entreUpdateMetrics()">Save Metrics</button><div id="e-metric-msg" style="margin-top:12px"></div></div></div>`;
+  renderEntrepreneur(); renderSettings();
+  document.getElementById('global-lb').innerHTML = renderGlobalLeaderboard('all');
+}
+
+function renderEntrepreneur() {
+  const m = currentUser.metrics;
+  const tasks = currentUser.tasks || [];
+  const done = tasks.filter(t=>t.done).length;
+  const prog = tasks.length ? Math.round((done/tasks.length)*100) : 0;
+  document.getElementById('e-statgrid').innerHTML = `<div class="stat-card"><div class="stat-label">Funding</div><div class="stat-value" style="color:var(--green)">$${(m.funding||0).toLocaleString()}</div></div><div class="stat-card"><div class="stat-label">Customers</div><div class="stat-value" style="color:var(--blue)">${m.customers||0}</div></div><div class="stat-card"><div class="stat-label">MRR</div><div class="stat-value" style="color:var(--primary)">$${(m.mrr||0).toLocaleString()}</div></div><div class="stat-card"><div class="stat-label">Growth</div><div class="stat-value" style="color:var(--amber)">${m.growth||0}%</div></div><div class="stat-card"><div class="stat-label">Task Progress</div><div class="stat-value">${prog}%</div><div class="stat-change">${done}/${tasks.length} done</div></div>`;
+  const bars = [{label:'Task Completion',val:prog,color:'var(--primary)'},{label:'Customer Growth',val:Math.min(100,(m.customers||0)/10),color:'var(--blue)'},{label:'Revenue Growth',val:Math.min(100,m.growth||0),color:'var(--green)'}];
+  document.getElementById('e-bars').innerHTML = bars.map(b=>`<div style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>${b.label}</span><span style="font-weight:600;color:${b.color}">${b.val.toFixed(1)}%</span></div><div class="progress-bar"><div class="progress-fill" style="width:${b.val}%;background:${b.color}"></div></div></div>`).join('');
+  document.getElementById('e-task-list').innerHTML = tasks.length ? tasks.map((t,i)=>`<div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)"><input type="checkbox" ${t.done?'checked':''} onchange="entreToggleTask(${i})" style="width:18px;height:18px;cursor:pointer;accent-color:var(--primary)"><span style="flex:1;font-size:14px;${t.done?'text-decoration:line-through;color:var(--muted)':''}">${t.t}</span><button class="btn-action btn-del" style="padding:5px 12px;font-size:12px" onclick="entreDelTask(${i})">Delete</button></div>`).join('') : '<p style="color:var(--muted)">No tasks yet. Add your first milestone!</p>';
+  
+  const globalLb = document.getElementById('global-lb');
+  if (globalLb) globalLb.innerHTML = renderGlobalLeaderboard(currentLbFilter);
+  
+  try { document.getElementById('e-bname').value=currentUser.business||''; document.getElementById('e-fund').value=m.funding||''; document.getElementById('e-cust').value=m.customers||''; document.getElementById('e-mrr').value=m.mrr||''; document.getElementById('e-growth').value=m.growth||''; } catch(e){}
+}
+
+function entreAddTask() { const v=document.getElementById('e-new-task').value.trim(); if (!v) return; currentUser.tasks.push({t:v,done:false}); document.getElementById('e-new-task').value=''; syncUser(); renderEntrepreneur(); }
+function entreToggleTask(i) { currentUser.tasks[i].done=!currentUser.tasks[i].done; syncUser(); renderEntrepreneur(); }
+function entreDelTask(i) { currentUser.tasks.splice(i,1); syncUser(); renderEntrepreneur(); }
+function entreUpdateMetrics() { currentUser.business=document.getElementById('e-bname').value||currentUser.business; currentUser.metrics.funding=+document.getElementById('e-fund').value||0; currentUser.metrics.customers=+document.getElementById('e-cust').value||0; currentUser.metrics.mrr=+document.getElementById('e-mrr').value||0; currentUser.metrics.growth=+document.getElementById('e-growth').value||0; syncUser(); renderEntrepreneur(); showMsg('e-metric-msg','Metrics saved','ok'); }
+
+function syncUser() { const users=getUsers(); const idx=users.findIndex(u=>u.username===currentUser.username); if (idx>=0) users[idx]=currentUser; saveUsers(users); }
 </script>
-
 </body>
 </html>
